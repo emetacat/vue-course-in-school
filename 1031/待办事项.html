@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>简单待办列表</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+      .done {
+        background-color: #f1f8e9;
+      }
+      .done .text {
+        text-decoration: line-through;
+        color: #777;
+      }
+      .delete-btn {
+        color: #f44336;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h3>待办事项</h3>
+      <input type="text" v-model="newTodo" placeholder="输入新任务..." />&nbsp;
+      <button @click="addTodo">添加</button>
+      <ul v-if="todos.length > 0"></ul>
+      <div v-else>暂无任务，添加一个吧！</div>
+      <div class="stats" v-show="todos.length > 0">
+        剩余 {{ remainingCount }} 个任务未完成
+        <button class="delete-btn" @click="clearDone" v-show="doneCount > 0">
+          清除已完成
+        </button>
+      </div>
+    </div>
+
+    <script>
+      const comApp = Vue.createApp({}).mount('#app');
+    </script>
+  </body>
+</html>

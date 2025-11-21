@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>demo3-2</title>
+  </head>
+  <body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <div id="app">
+      请选择登录类型：
+      <input type="radio" value="qq" v-model="loginType" />QQ 登录
+      <input type="radio" value="phone" v-model="loginType" />手机登录
+      <input type="radio" value="email" v-model="loginType" />邮箱登录
+      <div v-if="loginType =='qq'">
+        <h3>QQ 登录</h3>
+        <p>qq 账号:<input type="text" /></p>
+        <p>密码:<input type="password" /></p>
+        <p><button>登录</button></p>
+      </div>
+
+      <!--添加代码-->
+      <div v-else-if="loginType =='phone'">
+        <h3>手机登录</h3>
+        <p>手机号:<input type="text" /></p>
+        <p>验证码:<input type="text" /></p>
+        <p><button>登录</button></p>
+      </div>
+
+      <div v-else>
+        <h3>邮箱登录</h3>
+        <p>邮箱账号:<input type="text" /></p>
+        <p>密码:<input type="password" /></p>
+        <p><button>登录</button></p>
+      </div>
+    </div>
+
+    <script>
+      const comApp = {
+        data() {
+          return {
+            loginType: 'qq',
+          };
+        },
+      };
+      Vue.createApp(comApp).mount('#app');
+    </script>
+  </body>
+</html>

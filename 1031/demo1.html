@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <li v-for="i in nums" :key="i">{{ i }}</li>
+      </ul>
+
+      <p><button @click="pushNum">添加数组元素</button></p>
+      <p><button @click="popNum">删除数组最后一个元素</button></p>
+      <p><button @click="shiftNum">删除数组第一个元素</button></p>
+      <p><button @click="unshiftNum">将一个或多个元素添加到数组开头</button></p>
+      <p><button @click="spliceNum1">在指定位置删除元素</button></p>
+      <p><button @click="spliceNum2">在指定位置插入元素</button></p>
+      <p><button @click="spliceNum3">在指定位置替换元素</button></p>
+      <p><button @click="sortNum">对数组的元素进行排序</button></p>
+      <p><button @click="reverseNum">颠倒数组中元素的顺序</button></p>
+    </div>
+
+    <script>
+      const comApp = Vue.createApp({
+        data() {
+          return {
+            nums: [1, 2, 3, 4, 5],
+          };
+        },
+
+        methods: {
+          pushNum() {
+            //添加数组元素
+            this.nums.push(this.nums.length + 1);
+          },
+          popNum() {
+            //删除数组最后一个元素
+            this.nums.pop();
+          },
+          shiftNum() {
+            //删除数组第一个元素
+            this.nums.shift();
+          },
+          unshiftNum() {
+            //将一个或多个元素添加到数组开头
+            this.nums.unshift('1', '2', '3');
+          },
+          spliceNum1() {
+            //在指定位置删除元素splice(startIndex, deleteCount)
+            this.nums.splice(2, 2);
+          },
+          spliceNum2() {
+            //在指定位置插入元素splice(startIndex, 0, newElement)
+            this.nums.splice(2, 0, '8', '9');
+          },
+          spliceNum3() {
+            //在指定位置替换元素splice(startIndex, deleteCount, newElement)
+            this.nums.splice(2, 2, '8', '9');
+          },
+          sortNum() {
+            //对数组的元素进行排序
+            this.nums.sort();
+          },
+          reverseNum() {
+            //颠倒数组中元素的顺序
+            this.nums.reverse();
+          },
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>

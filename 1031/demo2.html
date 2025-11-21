@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h2>书籍列表</h2>
+
+      <ul>
+        <li v-for="book in books" :key="book.id">
+          {{ book.title }} - {{ book.author }}
+        </li>
+      </ul>
+
+      <p>
+        <button @click="addBook">添加书籍</button>
+        <button @click="deleteBook">删除书籍</button>
+        <button @click="findBook">查找书籍</button>
+      </p>
+    </div>
+
+    <script>
+      const comApp = Vue.createApp({
+        data() {
+          return {
+            books: [
+              { id: 1, title: '红楼梦', author: '曹雪芹' },
+              { id: 2, title: '西游记', author: '吴承恩' },
+              { id: 3, title: '三国演义', author: '罗贯中' },
+              { id: 4, title: '水浒传', author: '施耐庵' },
+            ],
+          };
+        },
+        methods: {
+          addBook() {
+            //添加书籍
+            this.books.push({ id: 5, title: '史记', author: '司马迁' });
+          },
+          deleteBook() {
+            //删除书籍 在指定位置删除元素splice(startIndex, deleteCount)
+            if (this.books.length > 0) {
+              this.books.splice(this.books.length - 1, 1);
+            } else {
+              alert('书籍列表为空');
+            }
+          },
+          findBook() {
+            //查找书籍
+            let result = this.books.filter((book) => book.id == 1);
+            this.books = result.slice();
+          },
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>

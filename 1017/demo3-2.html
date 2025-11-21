@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+      .active {
+        border: 2px solid blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div>
+        <h3 v-bind:title="title">切换图片边框</h3>
+        <img
+          v-bind:src="img"
+          width="100"
+          height="100"
+          v-bind:class="{ active: isActive }" />
+      </div>
+      <p v-bind:style="{ color: textColor, fontSize: fontSize + 'px' }">
+        This is a paragraph.
+      </p>
+      <button @click="toggleActive">切换</button>
+    </div>
+
+    <script>
+      const comApp = Vue.createApp({
+        data() {
+          return {
+            title: '切换图片边框',
+            img: './logo.png',
+            textColor: 'red',
+            fontSize: 16,
+            isActive: false,
+          };
+        },
+
+        methods: {
+          // 添加代码
+          toggleActive() {
+            this.isActive = !this.isActive;
+          },
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>

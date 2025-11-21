@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>v-show练习</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+      .box {
+        width: 200px;
+        height: 100px;
+        margin: 10px0;
+        padding: 10px;
+        border: 1pxsolid#ccc;
+      }
+      .a-box {
+        background-color: #ffebee;
+      }
+      .b-box {
+        background-color: #e3f2fd;
+      }
+      button {
+        margin-right: 10px;
+        padding: 5px10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 控制按钮 -->
+      <button @click="showOnlyA">显示 A</button>
+      <button @click="showOnlyB">显示 B</button>
+      <button @click="hideAll">全部隐藏</button>
+
+      <!-- 内容区域 - 使用v-show控制显示隐藏 -->
+      <div class="box a-box" v-show="showA">这是 A 元素</div>
+      <div class="box b-box" v-show="showB">这是 B 元素</div>
+    </div>
+
+    <script>
+      const comApp = {
+        data() {
+          return {
+            showA: false,
+            showB: false,
+          };
+        },
+
+        methods: {
+          showOnlyA() {
+            this.showA = true;
+            this.showB = false;
+          },
+
+          showOnlyB() {
+            this.showA = false;
+            this.showB = true;
+          },
+
+          //添加代码
+          hideAll() {
+            this.showA = false;
+            this.showB = false;
+          },
+        },
+      };
+
+      Vue.createApp(comApp).mount('#app');
+    </script>
+  </body>
+</html>

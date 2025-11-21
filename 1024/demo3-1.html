@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>demo3-1</title>
+  </head>
+  <body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <div id="app">
+      <h3>个人简介</h3>
+      <form>
+        <p>姓名：<input type="text" v-model="name" />{{name}}</p>
+        <p>联系方式：<input type="text" v-model="phone" />{{phone}}</p>
+        <p>
+          性别：<input type="radio" value="男" v-model="gender" checked />男
+          <input type="radio" value="女" v-model="gender" />女 {{gender}}
+        </p>
+        <p>年龄：<input type="text" v-model.number="age" />{{typeof(age)}}</p>
+        <p>
+          爱好：<input type="checkbox" value="阅读" v-model="hobby" />阅读
+          <input type="checkbox" value="游泳" v-model="hobby" />游泳
+          <input type="checkbox" value="唱歌" v-model="hobby" />唱歌
+          <input type="checkbox" value="爬山" v-model="hobby" />爬山
+          <input type="checkbox" value="足球" v-model="hobby" />足球
+        </p>
+        {{hobby}}
+        <p>
+          城市：<select v-model="city">
+            <option value="长沙">长沙</option>
+            <option value="武汉">武汉</option>
+            <option value="北京">北京</option>
+            <option value="上海">上海</option></select
+          >{{city}}
+        </p>
+        个人描述：
+        <p>
+          <textarea v-model="description" cols="30" rows="10"></textarea
+          >{{description}}
+        </p>
+      </form>
+      <button @click="submitForm">Submit</button>
+      <button @click="clear">清空</button>
+    </div>
+
+    <script>
+      const comApp = {
+        data() {
+          return {
+            name: '',
+            phone: '',
+            gender: '',
+            age: '',
+            hobby: ['阅读', '游泳'],
+            city: '长沙',
+            description: '',
+          };
+        },
+
+        methods: {
+          submitForm() {
+            console.log(
+              '个人简介：' +
+                this.name +
+                ' ' +
+                this.phone +
+                ' ' +
+                this.gender +
+                ' ' +
+                this.age +
+                ' ' +
+                this.hobby +
+                ' ' +
+                ' ' +
+                this.city +
+                ' ' +
+                this.description
+            );
+          },
+
+          clear() {
+            this.name = '';
+            this.phone = '';
+            this.gender = '';
+            this.age = '';
+            this.hobby = [];
+            this.city = '';
+            this.description = '';
+          },
+        },
+      };
+      Vue.createApp(comApp).mount('#app');
+    </script>
+  </body>
+</html>
