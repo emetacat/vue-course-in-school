@@ -10,9 +10,9 @@
       </div>
     </div>
 
-    <KeepAlive>
-      <component :is="currentComponent" class="content" />
-    </KeepAlive>
+    <!-- <KeepAlive> -->
+    <component :is="currentComponent" class="content" />
+    <!-- </KeepAlive> -->
   </div>
 </template>
 
@@ -23,7 +23,7 @@ import Mobile from './components/Mobile.vue'
 import Sports from './components/Sports.vue'
 
 export default {
-  name: 'App',
+  name: 'DynamicNavComponent',
   components: {
     AllGoods,
     Digital,
@@ -32,7 +32,7 @@ export default {
   },
   data() {
     return {
-      currentComponent: 'AllGoods',
+      currentComponent: 'Digital',
       navItems: [
         { id: 1, name: '全部商品', component: 'AllGoods' },
         { id: 2, name: '电脑数码', component: 'Digital' },
@@ -70,13 +70,13 @@ export default {
 
 .nav-item.active {
   font-weight: bold;
-  background-color: #009620; /* 选中状态颜色加深 */
+  background-color: #009620;
 }
 
 .content {
   padding: 20px;
   border: 1px solid #eee;
   margin-top: 10px;
-  min-height: 400px; /* 防止切换时高度塌陷 */
+  min-height: 400px;
 }
 </style>

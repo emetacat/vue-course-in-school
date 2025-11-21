@@ -15,6 +15,7 @@
         <button>添加任务</button>
       </template>
     </ChildCom>
+    <hr />
     <ChildCom1 v-for="(item, index) in topics" :key="index">
       <!-- #是v-slot:的语法糖 -->
       <template #title>帖子标题: {{ item.title }}</template>
@@ -28,7 +29,7 @@
 
 <script>
 import ChildCom from './components/ChildCom.vue'
-import ChildCom1 from './components/ChidCom1.vue'
+import ChildCom1 from './components/ChildCom1.vue'
 export default {
   data() {
     return {

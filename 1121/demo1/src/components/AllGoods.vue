@@ -1,38 +1,65 @@
 <template>
   <div class="content-flex">
-    <GoodsCom tag="数码">
+    <GoodsCom tag="热销">
       <template v-slot:header>
         <img
           class="product-img"
           src="../assets/computer.jpeg"
           alt="笔记本电脑" />
         <h3 class="product-title">笔记本电脑</h3>
-        <p class="product-desc">便携性与功能实用性的平衡。</p>
+        <p class="product-desc">
+          便携性与功能实用性的平衡，能适配多场景使用需求。
+        </p>
       </template>
       <template v-slot:price>
         <span class="current-price">¥3999</span>
+        <span class="original-price">¥4999</span>
       </template>
     </GoodsCom>
 
-    <GoodsCom tag="手机">
+    <GoodsCom tag="新品">
       <template v-slot:header>
-        <img class="product-img" src="../assets/computer.jpeg" alt="智能手机" />
-        <h3 class="product-title">智能手机 Pro Max</h3>
-        <p class="product-desc">超视网膜XDR显示屏，A16仿生芯片。</p>
+        <img
+          class="product-img"
+          src="../assets/wireless.jpg"
+          alt="无线蓝牙耳机" />
+        <h3 class="product-title">无线蓝牙耳机</h3>
+        <p class="product-desc">高音质，长续航，舒适佩戴体验。</p>
+      </template>
+      <template v-slot:price>
+        <span class="current-price">¥299</span>
+        <span class="original-price">¥399</span>
+      </template>
+    </GoodsCom>
+
+    <GoodsCom tag="双11">
+      <template v-slot:header>
+        <img
+          class="product-img"
+          src="../assets/iphone.jpg"
+          alt="iPhone 17 Pro" />
+        <h3 class="product-title">iPhone 17 Pro</h3>
+        <p class="product-desc">创新设计，打造巅峰性能和超长续航。</p>
       </template>
       <template v-slot:price>
         <span class="current-price">¥8999</span>
       </template>
     </GoodsCom>
 
-    <GoodsCom tag="运动">
+    <GoodsCom tag="舒适">
       <template v-slot:header>
-        <img class="product-img" src="../assets/wireless.jpg" alt="运动跑鞋" />
-        <h3 class="product-title">减震运动跑鞋</h3>
-        <p class="product-desc">轻量化设计，透气网面。</p>
+        <img
+          class="product-img"
+          src="../assets/nike.jpg"
+          alt="女子运动鞋骑士鞋" />
+        <h3 class="product-title">Air Jordan 4 RM</h3>
+        <p class="product-desc">
+          多种鞋面元素巧妙融入坚固柔韧的鞋笼中，强韧耐穿，是日常通勤的理想之选。
+        </p>
       </template>
       <template v-slot:price>
-        <span class="current-price">¥299</span>
+        <span class="current-price">¥999</span>
+        <span class="original-price">¥1099</span>
       </template>
     </GoodsCom>
   </div>

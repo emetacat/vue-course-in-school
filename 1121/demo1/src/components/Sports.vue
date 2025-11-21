@@ -2,13 +2,18 @@
   <div class="content-flex">
     <GoodsCom tag="舒适">
       <template v-slot:header>
-        <img class="product-img" src="../assets/wireless.jpg" alt="运动跑鞋" />
-        <h3 class="product-title">减震运动跑鞋</h3>
-        <p class="product-desc">轻量化设计，透气网面，专业缓震鞋底。</p>
+        <img
+          class="product-img"
+          src="../assets/nike.jpg"
+          alt="女子运动鞋骑士鞋" />
+        <h3 class="product-title">Air Jordan 4 RM</h3>
+        <p class="product-desc">
+          多种鞋面元素巧妙融入坚固柔韧的鞋笼中，强韧耐穿，是日常通勤的理想之选。
+        </p>
       </template>
       <template v-slot:price>
-        <span class="current-price">¥299</span>
-        <span class="original-price">¥499</span>
+        <span class="current-price">¥999</span>
+        <span class="original-price">¥1099</span>
       </template>
     </GoodsCom>
 
